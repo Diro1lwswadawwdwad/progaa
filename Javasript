@@ -1,6 +1,5 @@
 /*Задача 1
-Реализуйте функцию concatenateStrings, которая принимает две строки в качестве аргументов, возвращает результат 
-их конкатенации и удаляет все пробелы.*/
+*/
 
 const concatenateStrings = (str1, str2) => {
 
@@ -18,9 +17,6 @@ const getStringLength = (str) => {
 
 
 /*Задача 3
-Реализуйте функцию getStringFromTemplate, которая принимает параметры firstName и lastName 
-и возвращает результат подстановки этих значений в строку-шаблон 'Hello, firstName  lastName!'.
-Важно: используйте интерполяцию (шаблонные строки) для формирования результата, а не операцию конкатенации.
 */
 
 const getStringFromTemplate = (firstName, lastName) => {
@@ -29,8 +25,6 @@ const getStringFromTemplate = (firstName, lastName) => {
 
 
 /*Задача 4
-Реализуйте функцию getChar, которая принимает строку и порядковый номер символа в строке 
-и возвращает символ, соответствующий этому порядковому номеру.
 */
 
 
@@ -39,10 +33,6 @@ const getChar = (str, index) => {
 }
 
 /*Задача 5
-Реализуйте функцию removeFirstOccurrences, которая удаляет первое вхождение подстроки  внутри строки.
-'To be or not to be', 'not'  => 'To be or  to be'
-'I like legends', 'end' => 'I like legs',
-'ABABAB','BA' => 'ABAB'
 */
 
 const removeFirstOccurrences = (str, subStr) => {
@@ -54,16 +44,23 @@ const removeFirstOccurrences = (str, subStr) => {
 }
 
 /* Задача 6
-Реализуйте функцию getRectangleString, которая  возвращает строковое представление прямоугольника 
-с заданной шириной и высотой, используя символы '*'.
-*/
+function getRectangleString(width, height) {
+    const lines = [];
+    
+    
+    lines.push('*'.repeat(width));
+    
 
-const getRectangleString = (width, height) => {
-    let result = '';
-    for (let i = 0; i < height; i++) {
-        result += '*'.repeat(width) + '\n';
+    if (height > 2) {
+        for (let i = 0; i < height - 2; i++) {
+            lines.push('*' + ' '.repeat(Math.max(0, width - 2)) + '*');
+        }
     }
-    return result.trim();
+    
+    
+    if (height > 1) {
+        lines.push('*'.repeat(width));
+    }
+    
+    return lines.join('\n') + '\n';
 }
-
-console.log(getRectangleString(5, 3));
